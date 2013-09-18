@@ -4,7 +4,7 @@ feature 'User creates an account', %q{
   As a potential user
   I want to be able to create an
   So that I can use the site.
-# }
+# } do
   # As an unregistered user
   # I want to make an account
   # To start tracking my tasks
@@ -15,7 +15,7 @@ feature 'User creates an account', %q{
 
   describe "sign up for account" do
 
-    it "shows a field for username and " do
+    it "shows a field for username and password" do
       visit '/'
       click_on "Sign Up"
       fill_in "Email", with: "user@fake.com"
