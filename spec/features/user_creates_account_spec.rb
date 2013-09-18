@@ -17,13 +17,14 @@ feature 'User creates an account', %q{
 
     it "shows a field for username and password" do
       visit '/'
-      click_on "Sign Up"
+      click_on "Sign up"
       fill_in "Email", with: "user@fake.com"
       fill_in "Password", with: "password"
-      click_on "Start Streakin!"
+      fill_in "Password confirmation", with: "password"
+      # save_and_open_page
+      click_on "Start Streaking!"
       expect(page).to have_content "Success!"
     end
-
   end
 
 
