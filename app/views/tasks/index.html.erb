@@ -1,0 +1,7 @@
+<%= render 'tasks/form' %>
+
+<% @tasks.each do |task| %>
+  <%= task.name %>
+  <%= task.description %>
+  <%= task.remindable %>
+<% end %>

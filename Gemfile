@@ -42,7 +42,10 @@ group :test, :development do
   gem 'valid_attribute'
   gem 'launchy'
   gem 'pry-rails'
+  gem 'factory_girl_rails'
 end
+
+gem 'simple_form', github: "plataformatec/simple_form"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
