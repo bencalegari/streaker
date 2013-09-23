@@ -16,6 +16,12 @@ def create
   end
 end
 
+def destroy
+  @task = Task.find(params[:id])
+  @task.destroy
+  redirect_to '/tasks'
+end
+
 private
 
 def task_params

@@ -20,4 +20,14 @@ feature 'User creates a task', %q{
     expect(page).to have_content(task)
   end
 
+  scenario "user deletes a task" do
+    sign_in_as(user)
+    visit tasks_path
+    fill_in "Name", with: task
+    fill_in "Description", with: "Just remember them."
+    click_on "Create Task"
+    click_on "Delete"
+    
+    expect(page).to have_no_content(task)
+  end
 end

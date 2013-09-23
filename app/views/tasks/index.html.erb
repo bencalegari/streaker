@@ -1,7 +1,23 @@
 <%= render 'tasks/form' %>
 
-<% @tasks.each do |task| %>
-  <%= task.name %>
-  <%= task.description %>
-  <%= task.remindable %>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Remindable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>  
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= task.remindable %></td>
+        <td><%= link_to 'Delete', task, method: :delete %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
