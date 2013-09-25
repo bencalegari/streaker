@@ -11,6 +11,7 @@ end
 
 def create
   @task = Task.new(task_params)
+  @task.day_list = params[:task][:days]
   if @task.save
     redirect_to tasks_path, notice: "Task created!"
   end
@@ -25,7 +26,7 @@ end
 private
 
 def task_params
-  params.require(:task).permit(:name, :description, :remindable)
+  params.require(:task).permit(:name, :description, :remindable, :days, :start, :end)
 end
 
 end
