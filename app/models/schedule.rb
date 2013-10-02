@@ -1,5 +1,5 @@
-class Schedule < ActiveRecord::Base
-  validates_numericality_of :start
-  validates_numericality_of :duration
+# class Schedule < ActiveRecord::Base
+#   validates_numericality_of :start
+#   validates_numericality_of :duration
 
-end
+# end

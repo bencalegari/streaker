@@ -1,0 +1,1 @@
+# <td><%= task.created_at.strftime("%l:%m %P, %a %b %d") %></td>

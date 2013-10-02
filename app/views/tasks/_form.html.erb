@@ -5,8 +5,8 @@
   <%= f.input :remindable %>
   <%= f.collection_check_boxes :days, [["Monday", "Monday"],["Tuesday", "Tuesday"], 
       ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :first, :last %>
-  <%= f.input :start, as: :time %>
-  <%= f.input :end, as: :time %>
+  <%= f.input :start_time, as: :time %>
+  <%= f.input :end_time, as: :time %>
     <%= f.submit %>
 
 <% end %>

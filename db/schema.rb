@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20130925205957) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "start",                       null: false
-    t.datetime "end",                         null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "users", force: true do |t|
