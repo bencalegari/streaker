@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 def index
   @task = Task.new
   @tasks = Task.where(:user_id => current_user.id)
+  @check_in = CheckIn.new
 end
 
 def new
@@ -12,7 +13,7 @@ end
 def create
   @task = Task.new(task_params)
   @task.day_list = params[:task][:days]
-  @task.user_id = current_user.id
+  @task.user = current_user
   
   if @task.save
     redirect_to tasks_path, notice: "Task created!"

@@ -6,28 +6,27 @@ feature 'User creates a task', %q{
   So that I can track them.
 # } do
   
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
+  let!(:task) { create(:task, user: user) }
 
   scenario "user creates a task" do
     sign_in_as(user)
-    create_task
-
-    new_task = Task.last
+    visit tasks_path
+    
     expect(Task.find_by(name: "Remember keys.")).to be_present
-    expect(page).to have_content(new_task.name)
+    expect(page).to have_content(task.name)
   end
 
   scenario "user sees only their own tasks" do
     other_task = FactoryGirl.create(:task, name: "ZE OTHER TASK", user_id: 500)
     sign_in_as(user)
-    create_task
 
     expect(page).to have_no_content(other_task.name)
   end
 
   scenario "user sees an individual task" do
     sign_in_as(user)
-    create_task
+    visit tasks_path
     click_on "Show"
     
     expect(page).to have_content("Remember keys.")
@@ -35,11 +34,10 @@ feature 'User creates a task', %q{
 
   scenario "user deletes a task" do
     sign_in_as(user)
-    create_task
-    new_task = Task.last
+    visit tasks_path
     click_on "Delete"
     
-    expect(page).to have_no_content(new_task.name)
+    expect(page).to have_no_content(task.name)
   end
 
   scenario "creates a task with days and hours" do
