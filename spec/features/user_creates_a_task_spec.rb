@@ -29,7 +29,7 @@ feature 'User creates a task', %q{
     sign_in_as(user)
     create_task
     click_on "Show"
-    
+
     expect(page).to have_content("Remember keys.")
   end
 

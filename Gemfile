@@ -43,6 +43,7 @@ group :test, :development do
   gem 'launchy'
   gem 'pry-rails'
   gem 'factory_girl_rails'
+  gem 'haml-rails'
 end
 
 gem 'simple_form', github: "plataformatec/simple_form"
@@ -58,3 +59,5 @@ gem 'acts-as-taggable-on'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'zurb-foundation'

@@ -29,6 +29,7 @@ feature 'User creates an account', %q{
     it "lets the user sign in after account is registered" do
       user = FactoryGirl.create(:user)
       visit '/'
+      click_on "Login"
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_on "Sign in"
