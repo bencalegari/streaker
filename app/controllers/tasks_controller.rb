@@ -28,12 +28,15 @@ end
 def destroy
   @task = Task.find(params[:id])
   @task.destroy
-  redirect_to '/tasks'
+  redirect_to tasks_path, notice: "Task deleted."
 end
 
 def process_checkin
-  binding.pry
-  @checkins = CheckIn.where(task_id: params[:task_id])
+  @check_ins = CheckIn.where(task_id: params[:task_id])
+  @check_ins.each do |check_in|
+    check_in.process
+  end
+  redirect_to tasks_path, notice: "You checked in!"
 end
 
 private
