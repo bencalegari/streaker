@@ -9,4 +9,6 @@ class CheckInsController < ApplicationController
     end
   end
 
+  
+
 end

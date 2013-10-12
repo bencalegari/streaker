@@ -1,4 +1,6 @@
 <%= render 'tasks/form' %>
+
+
 <table>
   <thead>
     <tr>
@@ -17,9 +19,10 @@
         <td><%= link_to 'Delete', task, method: :delete %></td>
         <td><%= link_to 'Show', task %></td>
         <td> 
-          <%= simple_form_for [task, @check_in] do |c| %>
-            <%= c.submit 'Check In' %>
-          <% end %>
+          <%#= simple_form_for [task, @check_in] do |c| %>
+            <%#= c.submit 'Check In' %>
+          <%# end %>
+          <%= link_to "Check In", controller: "tasks", action: "process_checkin", task_id: task.id, id:" ", :class => "fake" %>
         </td>
 
         <td></td>

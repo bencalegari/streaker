@@ -14,6 +14,7 @@ def create
   @task = Task.new(task_params)
   @task.day_list = params[:task][:days]
   @task.user = current_user
+  @task.last_checkin_creation = Time.now
   
   if @task.save
     redirect_to tasks_path, notice: "Task created!"
@@ -28,6 +29,11 @@ def destroy
   @task = Task.find(params[:id])
   @task.destroy
   redirect_to '/tasks'
+end
+
+def process_checkin
+  binding.pry
+  @checkins = CheckIn.where(task_id: params[:task_id])
 end
 
 private

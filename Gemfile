@@ -58,3 +58,6 @@ gem 'acts-as-taggable-on'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'sidekiq'
+gem 'state_machine'
