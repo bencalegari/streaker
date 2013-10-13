@@ -43,6 +43,7 @@ group :test, :development do
   gem 'launchy'
   gem 'pry-rails'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 gem 'simple_form', github: "plataformatec/simple_form"

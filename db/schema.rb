@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131012203532) do
+ActiveRecord::Schema.define(version: 20131013004342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "check_ins", force: true do |t|
-    t.integer  "task_id",                    null: false
-    t.boolean  "on_time",    default: false
+    t.integer  "task_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "start_time"

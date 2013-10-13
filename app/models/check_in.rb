@@ -20,11 +20,4 @@ class CheckIn < ActiveRecord::Base
     end
   end
 
-  # When checkins are made
-    # If the checkins are valid (between the start and end time on the correct day)
-      # Update state from pending to on_time
-    # Else
-      # Reject the update, render the tasks page, flash message Stop overachieving and try again on time!
-
-
 end

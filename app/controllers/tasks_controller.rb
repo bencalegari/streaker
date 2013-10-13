@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
 def index
+  Task.create_checkins(current_user)
   @task = Task.new
   @tasks = Task.where(:user_id => current_user.id)
   @check_in = CheckIn.new

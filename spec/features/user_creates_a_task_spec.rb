@@ -4,7 +4,7 @@ feature 'User creates a task', %q{
   As a potential user
   I want to be able to create tasks
   So that I can track them.
-# } do
+ } do
   
   let(:user) { create(:user) }
   let!(:task) { create(:task, user: user) }

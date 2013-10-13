@@ -4,6 +4,7 @@ FactoryGirl.define do
     description "Just remember them."
     start_time Time.now - 1.hour
     end_time Time.now + 1.hour
+    last_checkin_creation Time.now - 1.day
     user
 
     after(:create) do |task|

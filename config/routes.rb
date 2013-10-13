@@ -10,7 +10,7 @@ Streaker::Application.routes.draw do
   end    
 
   # Devise routes
-  devise_for :users, :controllers => {:sessions => "sessions"}
+  devise_for :users
 
   # You can have the root of your site routed with "root"
   root 'home#index'
