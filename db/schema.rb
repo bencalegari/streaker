@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20131013004342) do
   enable_extension "plpgsql"
 
   create_table "check_ins", force: true do |t|
-    t.integer  "task_id",    null: false
+    t.integer  "task_id",                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string   "state"
+    t.string   "state",      default: "pending"
   end
 
   create_table "schedules", force: true do |t|
