@@ -18,4 +18,16 @@ feature 'User views checkins', %Q{
 
     expect(bad_check_in.reload.state).to eql("missed")
   end
+
+  scenario 'User checks the index page' do
+    check_in_count = CheckIn.count
+    sign_in_as(user)
+    visit tasks_path
+
+    expect(CheckIn.count).to eql(check_in_count)
+  end
+
+  scenario 'Expect created chckins to have the same start and end times as its corresponding ta' do
+    pending
+  end
 end
