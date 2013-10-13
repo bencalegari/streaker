@@ -17,9 +17,4 @@ feature 'User views checkins', %Q{
     visit tasks_path
     expect(bad_check_in.reload.state).to eql("missed")
   end
-
-  scenario 'Checkins are deleted and replaced with new ones when Task is changed/created' do
-    pending
-  end
-
 end
