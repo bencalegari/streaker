@@ -23,7 +23,7 @@ feature 'User views checkins', %Q{
     check_in_count = CheckIn.count
     sign_in_as(user)
     visit tasks_path
-    binding.pry
+    
     expect(CheckIn.count).to eql(check_in_count)
   end
 
