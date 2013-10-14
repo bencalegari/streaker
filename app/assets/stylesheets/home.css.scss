@@ -2,10 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Home Page 
 .splash-row {
-  margin-top: 45vh;
+  margin-top: 35vh;
+
+  h1 {
+    font-size: 4em;
+    text-align: center;
+  }
 }
 
 .welcome-nav {
+  text-align: center;
+  font-size: 2em;
+}
+
+.sign-up-btn {
+  
+}
+
+// Application Layout
+.user-nav {
   
 }

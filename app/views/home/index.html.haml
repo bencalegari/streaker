@@ -1,16 +1,22 @@
 .splash-row.row
-  .large-3.columns
-    %h1 Streaker.
-  .large-9.welcome-nav.columns
+  .large-12.columns
+    %h1 wanna go streaking?
+.welcome-row.row
+  .large-5.large-centered.welcome-nav.columns
     - if user_signed_in?
-      Logged in as
-      = succeed "." do
-        %strong= current_user.email
-      = link_to 'Edit profile', edit_user_registration_path
-      |
-      \#{link_to "Logout", destroy_user_session_path, method: :delete}
+      = link_to "Check your tasks."
     - else
-      = link_to "Sign up", new_user_registration_path
-      |
-      \#{link_to "Login", new_user_session_path}
-  
+    .sign-up-btn
+      = link_to "Don't be shy.", new_user_registration_path
+      
+    / .sign-up-form
+    / = render 'devise/registrations/sign_up_form'
+
+/ :javascript
+/   $(document).ready(function() {
+/       $(".sign-up-form").hide();
+/       $(".sign-up-btn").click(function(e){
+/         e.preventDefault()
+/         $(".sign-up-form").slideDown(1000);  
+/     });
+/   });
