@@ -10,7 +10,7 @@ class Task < ActiveRecord::Base
     @tasks.each do |task|
       task.cleanup_checkins
       if task.last_checkin_creation < Time.now - 1.second
-        task.day_list.add(Time.now.strftime("%A")) # TESTING ONLY. THIS NEEDS TO BE FIXED.
+        # task.day_list.add(Time.now.strftime("%A")) # TESTING ONLY. THIS NEEDS TO BE FIXED.
         task.delete_future_checkins
         
         task.day_list.each do |day|
