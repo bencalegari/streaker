@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002210737) do
+ActiveRecord::Schema.define(version: 20131013223855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "schedules", force: true do |t|
-    t.integer  "start"
-    t.integer  "duration"
+  create_table "check_ins", force: true do |t|
+    t.integer  "task_id",                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "state",      default: "pending"
   end
 
   create_table "taggings", force: true do |t|
@@ -41,15 +43,16 @@ ActiveRecord::Schema.define(version: 20131002210737) do
   end
 
   create_table "tasks", force: true do |t|
-    t.string   "name",                        null: false
+    t.string   "name",                                                  null: false
     t.string   "description"
-    t.boolean  "remindable",  default: false, null: false
+    t.boolean  "remindable",            default: false,                 null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "days"
+    t.datetime "last_checkin_creation", default: '1991-10-04 00:00:00'
   end
 
   create_table "users", force: true do |t|

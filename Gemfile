@@ -43,11 +43,9 @@ group :test, :development do
   gem 'launchy'
   gem 'pry-rails'
   gem 'factory_girl_rails'
-  gem 'haml-rails'
+  gem 'database_cleaner'
 end
 
-gem 'simple_form', github: "plataformatec/simple_form"
-gem 'acts-as-taggable-on'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -60,4 +58,9 @@ gem 'acts-as-taggable-on'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'simple_form', github: "plataformatec/simple_form"
+gem 'acts-as-taggable-on'
+gem 'haml-rails'
 gem 'zurb-foundation'
+gem 'sidekiq'
+gem 'state_machine'
