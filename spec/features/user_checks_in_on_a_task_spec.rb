@@ -28,6 +28,5 @@ feature 'user checks in a task', %Q{
     expect(bad_check_in.state).to eql("pending")
   end
 
-  
 
 end

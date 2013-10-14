@@ -19,7 +19,6 @@ module AuthenticationHelper
     select('40', :from => "task_start_time_5i")
     select('19', :from => "task_end_time_4i")
     select('30', :from => "task_end_time_5i")
-
     click_on "Create Task"
   end
   

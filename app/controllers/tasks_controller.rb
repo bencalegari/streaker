@@ -13,7 +13,7 @@ end
 
 def create
   @task = Task.new(task_params)
-  @task.day_list = params[:task][:days]
+  @task.day_list = params[:task][:days] # Might take this out. 
   @task.user = current_user
   @task.last_checkin_creation = Time.now
   
@@ -28,6 +28,7 @@ end
 
 def update
   @task = Task.find(params[:id])
+  @task.day_list = params[:task][:days]
   if @task.update(task_params)
     redirect_to tasks_path, notice: "Task updated!"
   else

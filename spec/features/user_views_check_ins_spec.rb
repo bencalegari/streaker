@@ -23,11 +23,8 @@ feature 'User views checkins', %Q{
     check_in_count = CheckIn.count
     sign_in_as(user)
     visit tasks_path
-
+    
     expect(CheckIn.count).to eql(check_in_count)
   end
 
-  scenario 'Expect created chckins to have the same start and end times as its corresponding ta' do
-    pending
-  end
 end

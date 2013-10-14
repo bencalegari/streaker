@@ -6,7 +6,8 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Remindable</th>
+      <th>Days</th>
+      <th>Time</th>
     </tr>
   </thead>
   <tbody>
@@ -15,18 +16,13 @@
       <tr>  
         <td><%= task.name %></td>
         <td><%= task.description %></td>
-        <td><%= task.remindable %></td>
+        <td><%= task.day_list %></td>
+        <td><%= task.start_time.strftime("%l:%M %P")%> - <%= task.end_time.strftime("%l:%M %P") %></td>
         <td><%= link_to 'Delete', task, method: :delete %></td>
         <td><%= link_to "Edit", edit_task_path(task) %></td>
         <td><%= link_to 'Show', task %></td>
-        <td> 
-          <%#= simple_form_for [task, @check_in] do |c| %>
-            <%#= c.submit 'Check In' %>
-          <%# end %>
-          <%= link_to "Check In", controller: "tasks", action: "process_checkin", task_id: task.id, id:" ", :class => "fake" %>
-        </td>
-
-        <td></td>
+        <td><%= link_to "Check In", controller: "tasks", action: "process_checkin", task_id: task.id, id:" ", :class => "fake" %></td>
+        
       </tr>
     <% end %>
   </tbody>
