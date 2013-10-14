@@ -17,6 +17,7 @@
         <td><%= task.description %></td>
         <td><%= task.remindable %></td>
         <td><%= link_to 'Delete', task, method: :delete %></td>
+        <td><%= link_to "Edit", edit_task_path(task) %></td>
         <td><%= link_to 'Show', task %></td>
         <td> 
           <%#= simple_form_for [task, @check_in] do |c| %>

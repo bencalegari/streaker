@@ -40,6 +40,15 @@ feature 'User creates a task', %q{
     expect(page).to have_no_content(task.name)
   end
 
+  scenario "user edits a task" do
+    sign_in_as(user)
+    visit tasks_path
+    click_on "Edit"
+    fill_in "Name", with: "The newest of names."
+    click_on "Update Task"
+    expect(task.reload.name).to eql("The newest of names.")
+  end
+
   scenario "creates a task with days and hours" do
     sign_in_as(user)
     create_task
