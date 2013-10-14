@@ -1,5 +1,5 @@
 class AddDeviseToUsers < ActiveRecord::Migration
-  def self.change
+  def change
     create_table(:users) do |t|
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
@@ -41,5 +41,5 @@ class AddDeviseToUsers < ActiveRecord::Migration
     # add_index :users, :unlock_token,         :unique => true
   end
 
-  
+
 end
