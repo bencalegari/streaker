@@ -9,6 +9,7 @@
     %title= content_for?(:title) ? yield(:title) : "Untitled"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/custom.modernizr"
+    = javascript_include_tag "application"
     = csrf_meta_tags
   %body
     .user-nav
@@ -32,4 +33,6 @@
     = notice
     = alert
     = yield
-    = javascript_include_tag "application"
+    
+  :javascript
+    $(".notice").fadeOut(7000);
