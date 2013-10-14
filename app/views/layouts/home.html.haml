@@ -5,8 +5,8 @@
   %head
     %meta{charset: "utf-8"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-    %title= content_for?(:title) ? yield(:title) : "Untitled"
     %link{href: "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", rel: "stylesheet"}/
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/custom.modernizr"
     = javascript_include_tag "application"
@@ -15,7 +15,7 @@
     .user-nav
       .section-container.vertical-nav{"data-section"=> "horizontal-nav", "data-options"=> "one_up: false"}
         .section
-          %p.title NAVIGATION BUTTON OF DESTINY
+          %a.title.icon-cogs.icon-3x 
           .content
             .side-nav
               - if user_signed_in?

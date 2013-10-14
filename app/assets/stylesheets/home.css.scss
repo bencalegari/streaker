@@ -4,7 +4,7 @@
 
 // Home Page 
 .splash-row {
-  margin-top: 35vh;
+  margin-top: 30vh;
 
   h1 {
     font-size: 4em;
@@ -24,4 +24,19 @@
 // Application Layout
 .user-nav {
   
+  .icon-cogs {
+    color: gray;   
+  }
 }
+
+.sign-up-form {
+
+  h2 {
+    text-align: center;
+  }
+
+  .start-streaking-btn {
+    
+  }
+}
+
