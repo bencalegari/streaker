@@ -29,9 +29,9 @@
     .checkins
       = calendar do |date|
         = date.day
-        - if @check_ins_by_date[date]
-          %ul
-            - @check_ins_by_date[date].each do |check_in|
-              %li
-                = check_in.name
-                = check_in.start_time
+        
+        - @check_ins.each do |check_in|
+          - if check_in.start_time.day == date.day
+            %li
+              = check_in.task.name
+              = check_in.start_time.strftime("%l:%M %P")
