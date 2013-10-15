@@ -22,8 +22,7 @@ feature 'User views checkins', %Q{
   scenario 'User checks the index page' do
     check_in_count = CheckIn.count
     sign_in_as(user)
-    visit tasks_path
-    # binding.pry
+        
     expect(CheckIn.count).to eql(check_in_count)
   end
 
