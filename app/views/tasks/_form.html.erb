@@ -2,7 +2,6 @@
 <%= simple_form_for @task do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :remindable %>
   <%= f.collection_check_boxes :days, [["Monday", "Monday"],["Tuesday", "Tuesday"], 
       ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :first, :last %>
   <%= f.input :start_time, as: :time %>

@@ -2,12 +2,9 @@
   .large-12.columns
     %h1 wanna go streaking?
 .welcome-row.row
-  .large-5.large-centered.welcome-nav.columns
-    - if user_signed_in?
-      = link_to "Check your tasks."
-    - else
-    .sign-up-btn
-      = link_to "Don't be shy.", new_user_registration_path
+  .large-10.large-centered.welcome-nav.columns
+    = link_to "Don't be shy.", new_user_registration_path
+    = link_to "Unless you've been here before.", new_user_session_path
 
 / :javascript
 /   $(document).ready(function() {

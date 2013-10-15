@@ -1,0 +1,29 @@
+.row
+  .large-5.columns
+    .tasks
+      %a{href: "/tasks"}
+        %h3 Tasks
+    = render 'tasks/form'
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Description
+          %th Days
+          %th Time
+      %tbody
+        - @tasks.each do |task|
+          %tr
+            %td= task.name
+            %td= task.description
+            %td= task.day_list
+            %td
+              = task.start_time.strftime("%l:%M %P")
+              \- #{task.end_time.strftime("%l:%M %P")}
+            %td= link_to 'Delete', task, method: :delete
+            %td= link_to "Edit", edit_task_path(task)
+            %td= link_to 'Show', task
+            %td= link_to "Check In", controller: "tasks", action: "process_checkin", task_id: task.id, id:" ", :class => "fake"
+  .large-5.columns
+    %h3 Checkins 
+    
