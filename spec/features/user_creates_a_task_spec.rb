@@ -43,7 +43,7 @@ feature 'User creates a task', %q{
 
   scenario "user changes days and times for task" do
     sign_in_as(user)
-    visit tasks_path
+    
     click_on "Edit"
     
     fill_in "Name", with: "The newest of names."
@@ -55,9 +55,11 @@ feature 'User creates a task', %q{
     select('15', :from => "task_end_time_4i")
     select('30', :from => "task_end_time_5i")
     click_on "Update Task"
+    visit tasks_path
 
     expect(task.reload.name).to eql("The newest of names.")
     new_check_in = CheckIn.last
+    
     expect(new_check_in.start_time.hour).to eql(task.reload.start_time.hour)
     expect(new_check_in.start_time.min).to eql(task.reload.start_time.min)
     expect(new_check_in.end_time.hour).to eql(task.reload.end_time.hour)
