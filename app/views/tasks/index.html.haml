@@ -26,4 +26,12 @@
             %td= link_to "Check In", controller: "tasks", action: "process_checkin", task_id: task.id, id:" ", :class => "fake"
   .large-5.columns
     %h3 Checkins 
-    
+    .checkins
+      = calendar do |date|
+        = date.day
+        - if @check_ins_by_date[date]
+          %ul
+            - @check_ins_by_date[date].each do |check_in|
+              %li
+                = check_in.name
+                = check_in.start_time

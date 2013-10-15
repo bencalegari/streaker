@@ -6,6 +6,8 @@ def index
   @task = Task.new
   @tasks = Task.where(:user_id => current_user.id)
   @check_in = CheckIn.new
+  @check_ins = CheckIn.where(task_id: @tasks)
+  @check_ins_by_date = @check_ins.group_by(&:start_time)
 end
 
 def new
