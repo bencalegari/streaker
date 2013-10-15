@@ -9,7 +9,6 @@ feature 'User checks in on a task', %Q{
   let!(:task) { create(:task, user: user) }
   let!(:check_in) { create(:check_in, task_id: task.id) }
   let!(:bad_check_in) { create(:check_in, start_time: (Time.now - 2.hours), end_time:(Time.now - 1.hour) )}
-  # let!(:future_check_in) { create(:check_in, )}
 
   scenario 'user makes a check in on time' do
     sign_in_as(user)

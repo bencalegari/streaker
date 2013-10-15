@@ -32,6 +32,15 @@
         
         - @check_ins.each do |check_in|
           - if check_in.start_time.day == date.day
-            %li
-              = check_in.task.name
-              = check_in.start_time.strftime("%l:%M %P")
+            - if check_in.state == "on_time"
+              %li.on_time
+                = check_in.task.name
+                = check_in.start_time.strftime("%l:%M %P")
+            - elsif check_in.state == "missed"
+              %li.missed
+                = check_in.task.name
+                = check_in.start_time.strftime("%l:%M %P")
+            - else
+              %li.pending
+                = check_in.task.name
+                = check_in.start_time.strftime("%l:%M %P")
