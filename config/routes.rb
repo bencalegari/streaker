@@ -11,9 +11,13 @@ Streaker::Application.routes.draw do
 
   # Devise routes
   devise_for :users
-
+  
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root :to => 'home#index'
+
+  # authenticated :user do
+  #   root :to => "tasks#index"
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

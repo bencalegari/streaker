@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
+before_filter :authenticate_user!
 
 def index
   Task.create_checkins(current_user)
   @task = Task.new
   @tasks = Task.where(:user_id => current_user.id)
   @check_in = CheckIn.new
+  @check_ins = CheckIn.where(task_id: @tasks)
 end
 
 def new
