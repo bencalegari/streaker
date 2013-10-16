@@ -47,3 +47,15 @@
 .tasks {
 
 }
+
+.checkins {
+  .on-time {
+    background-color: green;
+  }
+  .missed {
+    background-color: red;
+  }
+  .pending {
+    background-color: yellow;
+  }
+}

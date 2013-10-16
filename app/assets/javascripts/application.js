@@ -17,9 +17,4 @@
 //= require chosen-jquery
 //= require_tree .
 
-$( document ).ready(function() {
-  $(function(){ $(document).foundation(); });
-
-  $(".notice").fadeOut(7000);
-  
-};
+$(function(){ $(document).foundation(); });
