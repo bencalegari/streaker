@@ -10,8 +10,9 @@
     %title= content_for?(:title) ? yield(:title) : "Streaker - A task accomplishment app based on Seinfeld's Principle."
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/custom.modernizr"
-    
+    = javascript_include_tag "application"
     = csrf_meta_tags
+  
   %body
     %nav.top-bar.user-nav
       %ul.title-area
@@ -41,32 +42,10 @@
                   = link_to "Sign up", new_user_registration_path
                 %li
                   \#{link_to "Login", new_user_session_path} 
-            
-    
     = notice
     = alert
     = yield
-  = javascript_include_tag "application"
-/ .user-nav
-/   .section-container.vertical-nav{"data-section"=> "vertical-nav", "data-options"=> "one_up: false"}
-/     .section
-/       %a.title.icon-cogs.icon-3x 
-/       %a.logo{href: "/tasks"} Streaker.
-/       .content
-/         .side-nav
-/           - if user_signed_in?
-/             %li
-/               Logged in as
-/               = succeed "." do
-/                 %strong= current_user.email
-/             %li
-/               = link_to 'Edit profile', edit_user_registration_path
-/             %li
-/               = link_to "Logout", destroy_user_session_path, method: :delete
-/             %li
-/               = link_to "Tasks", tasks_path
-/           - else
-/             %li
-/               = link_to "Sign up", new_user_registration_path
-/             %li
-/               \#{link_to "Login", new_user_session_path} 
+    :javascript    
+      function() {
+        $(".notice").fadeOut(800);
+      };

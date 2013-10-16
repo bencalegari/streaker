@@ -3,7 +3,9 @@
     .tasks
       %a{href: "/tasks"}
         %h3 Tasks
-    = render 'tasks/form'
+    .new-task-btn.icon-plus-sign-alt.icon-2x
+    .new-task
+      = render 'tasks/form'
     %table
       %thead
         %tr

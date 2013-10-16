@@ -13,8 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require chosen-jquery
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+
+$(function() {
+    $(".new-task").hide();
+    $(".new-task-btn").click(function() {
+      $(".new-task").slideToggle(800);
+    });
+  });
