@@ -22,14 +22,27 @@
 
 
 // Application Layout
+.body {
+  background: aliceblue;
+}
+
 .user-nav {
-  
+  background-color: #334D5C;
+
   .icon-cogs {
-    color: gray;   
+    color: white; 
+    font-size: 1.8em;  
   }
   .logo {
     font-size: 1.8em;
     font-family: 'Roboto Slab', serif;
+    color: white;
+  }
+
+  .user-settings-dropdown {
+    background-color: gray;
+    border: solid 1px black;
+    color: black;
   }
 }
 

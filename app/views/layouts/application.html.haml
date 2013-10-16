@@ -13,14 +13,31 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-  .user-nav
-    %nav.top-bar
+    %nav.top-bar.user-nav
       %ul.title-area
-        %ul.name
-          %a.icon-cogs.icon-2x 
+        %li.name 
           %a.logo{href: "/tasks"} Streaker.
-        %li.has-dropdown
-          %ul.dropdown
+      %section.top-bar-section
+        %ul.right
+          %li.has-dropdown
+            %a.icon-cogs.icon-2x
+            %ul.dropdown.user-settings-dropdown
+              - if user_signed_in?
+                %li
+                  Logged in as
+                  = succeed "." do
+                    %strong= current_user.email
+                %li
+                  = link_to 'Edit profile', edit_user_registration_path
+                %li
+                  = link_to "Logout", destroy_user_session_path, method: :delete
+                %li
+                  = link_to "Tasks", tasks_path
+              - else
+                %li
+                  = link_to "Sign up", new_user_registration_path
+                %li
+                  \#{link_to "Login", new_user_session_path} 
             
     :javascript
       $(".notice").fadeOut(7000);
