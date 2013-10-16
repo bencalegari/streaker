@@ -10,13 +10,16 @@
     %title= content_for?(:title) ? yield(:title) : "Streaker - A task accomplishment app based on Seinfeld's Principle."
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/custom.modernizr"
-    = javascript_include_tag "application"
+    
     = csrf_meta_tags
   %body
     %nav.top-bar.user-nav
       %ul.title-area
-        %li.name 
-          %a.logo{href: "/tasks"} Streaker.
+        %li.name
+          - if user_signed_in? 
+            %a.logo{href: "/tasks"} Streaker.
+          - else
+            %a.logo{href: "/"} Streaker.
       %section.top-bar-section
         %ul.right
           %li.has-dropdown
@@ -39,12 +42,11 @@
                 %li
                   \#{link_to "Login", new_user_session_path} 
             
-    :javascript
-      $(".notice").fadeOut(7000);
+    
     = notice
     = alert
     = yield
-
+  = javascript_include_tag "application"
 / .user-nav
 /   .section-container.vertical-nav{"data-section"=> "vertical-nav", "data-options"=> "one_up: false"}
 /     .section
