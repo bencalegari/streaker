@@ -2,9 +2,7 @@
 <%= simple_form_for @task do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <!-- <div class="day_select"> -->
-    <%= f.input :days, as: :select, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], :input_html => { :class=> 'chosen',:multiple => true } %>
-  <!-- </div> -->
+  <%= f.input :days, as: :select, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], :input_html => { :class=> 'chosen',:multiple => true } %>
   <%= f.input :start_time, as: :time %>
   <%= f.input :end_time, as: :time %>
     <%= f.submit %>

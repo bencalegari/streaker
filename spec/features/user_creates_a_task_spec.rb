@@ -48,8 +48,10 @@ feature 'User creates a task', %q{
     
     fill_in "Name", with: "The newest of names."
     fill_in "Description", with: "Stuffff"
-    check "Tuesday"
-    check "Saturday"
+    within(".task_days") do
+      select "Tuesday"
+      select "Saturday"
+    end
     select('12', :from => "task_start_time_4i")
     select('30', :from => "task_start_time_5i")
     select('15', :from => "task_end_time_4i")

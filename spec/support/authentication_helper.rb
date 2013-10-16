@@ -13,8 +13,8 @@ module AuthenticationHelper
     visit tasks_path
     fill_in "Name", with: "Remember keys."
     fill_in "Description", with: "Just remember them."
-    check "Monday"
-    check "Friday"
+    select "Monday"
+    select "Friday"
     select('18', :from => "task_start_time_4i")
     select('40', :from => "task_start_time_5i")
     select('19', :from => "task_end_time_4i")
