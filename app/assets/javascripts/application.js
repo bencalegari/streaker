@@ -24,4 +24,6 @@ $(function() {
     $(".new-task-btn").click(function() {
       $(".new-task").slideToggle(800);
     });
+
+    $(".chosen").chosen({width: "100%"});
   });

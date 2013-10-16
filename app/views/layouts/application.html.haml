@@ -42,10 +42,11 @@
                   = link_to "Sign up", new_user_registration_path
                 %li
                   \#{link_to "Login", new_user_session_path} 
-    = notice
+    .notice
+      = notice
     = alert
     = yield
     :javascript    
-      function() {
-        $(".notice").fadeOut(800);
-      };
+      $(function() {
+        $(".notice").fadeOut(4000);
+      });
