@@ -15,6 +15,8 @@
 //= require foundation
 //= require chosen-jquery
 //= require_tree .
+//= require jquery.ui.datepicker
+//= require jquery.ui.slider
 
 $(function(){ $(document).foundation(); });
 
