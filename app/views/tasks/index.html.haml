@@ -3,7 +3,10 @@
     .tasks
       %a{href: "/tasks"}
         %h3 Tasks
-    .new-task-btn.icon-plus-sign-alt.icon-2x
+    .new-task-btn
+      .tiny.success.button.radius 
+        %h3 Add New Task
+        .icon-plus-sign-alt.icon-2x
     .new-task
       = render 'tasks/form'
     %table
