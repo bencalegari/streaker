@@ -5,8 +5,6 @@
   <%= f.input :days, as: :select, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], :input_html => { :class=> 'chosen',:multiple => true } %>
   <%= f.input :start_time, as: :time %>
   <%= f.input :end_time, as: :time %>
-    <%= f.submit %>
-
+  <%= f.submit :class => 'start-streaking-btn button radius', :style => "margin:0% 0% 0% 35%" %>
 <% end %>
-
 
