@@ -21,14 +21,15 @@ feature 'User views checkins', %Q{
 
   scenario 'User checks the index page' do
     check_in_count = CheckIn.count
-    sign_in_as(user)    
+    sign_in_as(user)
+      
     expect(CheckIn.count).to eql(check_in_count)
   end
 
   scenario 'User sees their missed checkins' do
     sign_in_as(user)
     click_on "Check In"
-    expect(page).to have_css(".on_time")
+    expect(page).to have_selector(".on_time")
   end
 
   scenario 'User sees their successful checkins' do

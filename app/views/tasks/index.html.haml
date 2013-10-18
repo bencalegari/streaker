@@ -47,5 +47,6 @@
                 = check_in.start_time.strftime("%l:%M %P")
             - else
               %li.pending
+                - binding.pry
                 = check_in.task.name
                 = check_in.start_time.strftime("%l:%M %P")
