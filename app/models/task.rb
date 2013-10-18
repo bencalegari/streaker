@@ -14,7 +14,6 @@ class Task < ActiveRecord::Base
         if CheckIn.where("task_id = ? and date_trunc('minute', start_time) = date_trunc('minute', cast(? as timestamp)) and date_trunc('minute', end_time) = date_trunc('minute', cast(? as timestamp)) ", task.id, task.create_checkin_start_time(day), task.create_checkin_end_time(day)).empty?
           CheckIn.create(task_id: task.id, start_time: task.create_checkin_start_time(day), end_time: task.create_checkin_end_time(day))
         end
-      binding.pry  
       end
     end
   end
