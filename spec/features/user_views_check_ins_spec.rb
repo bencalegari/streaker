@@ -29,7 +29,7 @@ feature 'User views checkins', %Q{
   scenario 'User sees their missed checkins' do
     sign_in_as(user)
     click_on "Check In"
-    expect(page).to have_selector(".on_time")
+    expect(page).to have_selector(".on-time")
   end
 
   scenario 'User sees their successful checkins' do

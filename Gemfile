@@ -43,6 +43,10 @@ group :test, :development do
   gem 'database_cleaner'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -59,9 +63,7 @@ gem 'simple_form', github: "plataformatec/simple_form"
 gem 'acts-as-taggable-on'
 gem 'haml-rails'
 gem 'zurb-foundation'
-gem 'sidekiq'
 gem 'state_machine'
 gem 'chosen-rails'
 gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'jquery-ui-rails'
-gem 'rails_12factor'
