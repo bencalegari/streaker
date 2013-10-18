@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: streaker_test
+  username: postgres
