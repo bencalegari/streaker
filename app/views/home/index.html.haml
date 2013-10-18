@@ -1,9 +1,9 @@
-.splash-row.row
+.streaking.row
   .large-12.columns
-    %h1 wanna go streaking?
+    %h1.home-title 
+      = link_to "wanna go streaking?", new_user_registration_path
 .welcome-row.row
-  .large-10.large-centered.welcome-nav.columns
-    = link_to "Don't be shy.", new_user_registration_path
+  .large-6.large-centered.sign-in-title.columns
     = link_to "Unless you've been here before.", new_user_session_path
 
 / :javascript

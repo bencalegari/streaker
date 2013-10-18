@@ -15,7 +15,7 @@ end
 
 def create
   @task = Task.new(task_params)
-  @task.day_list = params[:task][:days] # Might take this out. 
+  @task.day_list = params[:task][:days] 
   @task.user = current_user
   @task.last_checkin_creation = Time.now
   

@@ -12,42 +12,41 @@
     = javascript_include_tag "vendor/custom.modernizr"
     = javascript_include_tag "application"
     = csrf_meta_tags
+  
   %body
-  .user-nav
-    %nav.top-bar
+    %nav.top-bar.user-nav
       %ul.title-area
-        %ul.name
-          %a.icon-cogs.icon-2x 
-          %a.logo{href: "/tasks"} Streaker.
-        %li.has-dropdown
-          %ul.dropdown
-            
-    :javascript
-      $(".notice").fadeOut(7000);
-    = notice
+        %li.name
+          - if user_signed_in? 
+            %a.logo{href: "/tasks"} Streaker.
+          - else
+            %a.logo{href: "/"} Streaker.
+      %section.top-bar-section
+        %ul.right
+          %li.has-dropdown
+            %a.icon-cogs.icon-2x
+            %ul.dropdown.user-settings-dropdown
+              - if user_signed_in?
+                %li
+                  Logged in as
+                  = succeed "." do
+                    %strong= current_user.email
+                %li
+                  = link_to 'Edit profile', edit_user_registration_path
+                %li
+                  = link_to "Logout", destroy_user_session_path, method: :delete
+                %li
+                  = link_to "Tasks", tasks_path
+              - else
+                %li
+                  = link_to "Sign up", new_user_registration_path
+                %li
+                  \#{link_to "Login", new_user_session_path} 
+    .notice
+      = notice
     = alert
     = yield
-
-/ .user-nav
-/   .section-container.vertical-nav{"data-section"=> "vertical-nav", "data-options"=> "one_up: false"}
-/     .section
-/       %a.title.icon-cogs.icon-3x 
-/       %a.logo{href: "/tasks"} Streaker.
-/       .content
-/         .side-nav
-/           - if user_signed_in?
-/             %li
-/               Logged in as
-/               = succeed "." do
-/                 %strong= current_user.email
-/             %li
-/               = link_to 'Edit profile', edit_user_registration_path
-/             %li
-/               = link_to "Logout", destroy_user_session_path, method: :delete
-/             %li
-/               = link_to "Tasks", tasks_path
-/           - else
-/             %li
-/               = link_to "Sign up", new_user_registration_path
-/             %li
-/               \#{link_to "Login", new_user_session_path} 
+    :javascript    
+      $(function() {
+        $(".notice").fadeOut(000);
+      });

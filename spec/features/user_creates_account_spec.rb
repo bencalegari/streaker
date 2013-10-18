@@ -14,7 +14,7 @@ feature 'User creates an account', %q{
 
     it "allows the user to sign up for an account" do
       visit '/'
-      click_on "Don't be shy."
+      click_on "wanna go streaking?"
       fill_in "Email", with: "user@fake.com"
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"

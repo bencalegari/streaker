@@ -13,13 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require chosen-jquery
 //= require_tree .
+//= require jquery.ui.datepicker
+//= require jquery.ui.slider
 
-$( document ).ready(function() {
-  $(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation(); });
 
-  $(".notice").fadeOut(7000);
-  
-};
+
+$(function() {
+    $(".new-task").hide();
+    $(".new-task-btn").click(function() {
+      $(".new-task").slideToggle(0);
+    });
+
+    $(".chosen").chosen({width: "100%"});
+
+
+
+  });

@@ -3,7 +3,12 @@
     .tasks
       %a{href: "/tasks"}
         %h3 Tasks
-    = render 'tasks/form'
+    .new-task-btn
+      .tiny.success.button.radius 
+        %h3 Add New Task
+        .icon-plus-sign-alt.icon-2x
+    .new-task
+      = render 'tasks/form'
     %table
       %thead
         %tr
@@ -23,7 +28,7 @@
             %td= link_to 'Delete', task, method: :delete
             %td= link_to "Edit", edit_task_path(task)
             %td= link_to 'Show', task
-            %td= link_to "Check In", controller: "tasks", action: "process_checkin", task_id: task.id, id:" ", :class => "fake"
+            %td= link_to "Check In", controller: "tasks", action: "process_checkin", task_id: task.id, id:" ", class: "fake"
   .large-5.columns
     %h3 Checkins 
     .checkins
@@ -32,6 +37,15 @@
         
         - @check_ins.each do |check_in|
           - if check_in.start_time.day == date.day
-            %li
-              = check_in.task.name
-              = check_in.start_time.strftime("%l:%M %P")
+            - if check_in.state == "on_time"
+              %li.on-time
+                = check_in.task.name
+                .icon-check-sign
+            - elsif check_in.state == "missed"
+              %li.missed
+                = check_in.task.name
+                .icon-ban-circle
+            - else
+              %li.pending
+                = check_in.task.name
+                = check_in.start_time.strftime("%l:%M %P")
