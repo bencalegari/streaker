@@ -10,7 +10,6 @@ FactoryGirl.define do
     after(:create) do |task|
       task.day_list.add(Time.now.strftime("%A"))
       task.day_list.add((Time.now + 1.day).strftime("%A"))
-      binding.pry
       task.save
     end
 
