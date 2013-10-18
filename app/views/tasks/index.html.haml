@@ -37,7 +37,6 @@
         
         - @check_ins.each do |check_in|
           - if check_in.start_time.day == date.day
-            - binding.pry
             - if check_in.state == "on_time"
               %li.on-time
                 = check_in.task.name

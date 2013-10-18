@@ -131,6 +131,9 @@
 
 // Tasks Page
 .checkins {
+  text-align: center;
+  list-style-type: none;
+
   .on-time {
     color: green;
   }
@@ -147,7 +150,10 @@
 }
 
 .new-task {
-  
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px; 
+  padding: 10px 15px 5px 15px;
 }
 
 .new-task-btn {
