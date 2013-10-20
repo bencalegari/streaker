@@ -27,6 +27,11 @@ $(function() {
       $(".new-task").slideToggle(0);
     });
 
+    $(".footnote-row").hide();
+    $(".streaking").mouseover(function(){
+      $(".footnote-row").show;
+    });
+
     $(".chosen").chosen({width: "100%"});
 
 
