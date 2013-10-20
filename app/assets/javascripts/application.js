@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require foundation
 //= require chosen-jquery
-//= require_tree .
 //= require jquery.ui.datepicker
 //= require jquery.ui.slider
+//= require_tree .
 
 $(function(){ $(document).foundation(); });
 
@@ -28,8 +28,12 @@ $(function() {
     });
 
     $(".footnote-row").hide();
-    $(".streaking").mouseover(function(){
-      $(".footnote-row").show;
+    $(".home-title a").mouseover(function() {
+      $(".footnote-row").fadeIn();
+    });
+
+    $(".home-title a").mouseout(function() {
+      $(".footnote-row").fadeOut();
     });
 
     $(".chosen").chosen({width: "100%"});
