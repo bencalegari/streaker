@@ -45,6 +45,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'capybara-webkit'
 end
 
 group :production do
@@ -71,3 +72,4 @@ gem 'state_machine'
 gem 'chosen-rails'
 gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'jquery-ui-rails'
+gem 'pickadate-rails'

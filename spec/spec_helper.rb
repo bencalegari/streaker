@@ -21,7 +21,7 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
   config.include FactoryGirl::Syntax::Methods
-
+  Capybara.javascript_driver = :webkit
   config.include(AuthenticationHelper)
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
