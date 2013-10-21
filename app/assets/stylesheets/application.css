@@ -11,7 +11,7 @@
  *= require_self
  *= require foundation_and_overrides
  *= require chosen
+ *= require pickadate/default
+ *= require pickadate/default.time
  *= require_tree .
- *= require jquery.ui.datepicker
- *= require jquery.ui.slider
  */
