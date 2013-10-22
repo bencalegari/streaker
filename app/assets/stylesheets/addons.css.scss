@@ -1,3 +1,15 @@
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 40%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 40% 10px 10px; }
+
 .checkins .calendar {
   border-collapse: collapse;
   width: 100%;
@@ -33,7 +45,6 @@
   padding-bottom: 10px;
   text-align: center;
   font-size: 22px;
-  
   a {
     text-decoration: none;
     padding: 0 10px;
@@ -44,66 +55,4 @@
 .checkins ul {
   font-size: 11px;
   padding-left: 20px;
-}
-
-// Title Effect
-
-.home-title a::after {
-  position: absolute;
-  top: 71%;
-  left: 8%;
-  width: 83%;
-  height: 4px;
-  background: rgba(0,0,0,0.1);
-  content: '';
-  opacity: 0;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  -webkit-transform: translateY(30px);
-  -moz-transform: translateY(10px);
-  transform: translateY(10px);
-}
-
-.home-title a:hover::after,
-.home-title a:focus::after {
-  opacity: 1;
-  -webkit-transform: translateY(-5px);
-  -moz-transform: translateY(-5px);
-  transform: translateY(-5px);
-}
-
-// Been here before? Link Effect
-.sign-in-title {
-  text-align: center;
-}
-
-.sign-in-title a {
-  padding: 8px 0;
-  font-size: 2em;
-}
-
-.sign-in-title a::after {
-  position: absolute;
-  top: 100%;
-  left: 22%;
-  width: 55%;
-  height: 2px;
-  background: rgba(0,0,0,0.1);
-  content: '';
-  opacity: 0;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  transform: translateY(10px);
-}
-
-.sign-in-title a:hover::after,
-.sign-in-title a:focus::after {
-  opacity: 1;
-  -webkit-transform: translateY(0px);
-  -moz-transform: translateY(0px);
-  transform: translateY(0px);
 }

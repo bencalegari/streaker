@@ -42,8 +42,4 @@ feature 'User views checkins', %Q{
     expect(page).to have_css(".pending")
   end
 
-  scenario 'User sees their current streak' do
-    pending
-  end
-
 end

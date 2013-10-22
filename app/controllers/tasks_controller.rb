@@ -18,6 +18,7 @@ def create
   @task.day_list = params[:task][:days] 
   @task.user = current_user
   @task.last_checkin_creation = Time.now
+  
   if @task.save
     redirect_to tasks_path, notice: "Task created!"
   end
