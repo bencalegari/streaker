@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require chosen-jquery
-//= require jquery.ui.datepicker
-//= require jquery.ui.slider
+//= require pickadate/picker
+//= require pickadate/picker.time
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
@@ -28,16 +28,16 @@ $(function() {
     });
 
     $(".footnote-row").hide();
-    $(".home-title a").mouseover(function() {
+    $(".home-title").mouseover(function() {
       $(".footnote-row").fadeIn();
     });
 
-    $(".home-title a").mouseout(function() {
-      $(".footnote-row").fadeOut();
-    });
+    // $(".home-title").mouseout(function() {
+    //   $(".footnote-row").fadeOut();
+    // });
 
     $(".chosen").chosen({width: "100%"});
 
-
+    $(".time-pkr").pickatime();
 
   });

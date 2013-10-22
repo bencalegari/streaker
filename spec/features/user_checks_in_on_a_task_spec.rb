@@ -14,7 +14,6 @@ feature 'User checks in on a task', %Q{
     sign_in_as(user)
     visit tasks_path
     click_on "Check In"
-    
 
     expect(page).to have_content("You checked in!")
     expect(check_in.reload.state).to eql("on_time")
