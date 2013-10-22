@@ -24,7 +24,7 @@ $(function(){ $(document).foundation(); });
 $(function() {
     $(".new-task").hide();
     $(".new-task-btn").click(function() {
-      $(".new-task").slideToggle(0);
+      $(".new-task").slideToggle(600);
     });
 
     $(".footnote-row").hide();
