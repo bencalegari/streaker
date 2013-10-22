@@ -8,16 +8,16 @@ class Task < ActiveRecord::Base
   def self.create_checkins(user)
     @tasks = Task.where(user_id: user.id)
     @tasks.each do |task|
+      task.check_checkins
       task.delete_future_checkins
       task.populate_checkins
-      task.check_checkins
     end
   end
 
   def populate_checkins
     self.day_list.each do |day|
-        if CheckIn.where("task_id = ? and date_trunc('minute', start_time) = date_trunc('minute', cast(? as timestamp)) and date_trunc('minute', end_time) = date_trunc('minute', cast(? as timestamp)) ", self.id, self.create_checkin_start_time(day).change(:hour => self.start_time.hour + 4), self.create_checkin_end_time(day).change(:hour => self.end_time.hour + 4)).empty?
-          CheckIn.create(task_id: self.id, start_time: self.create_checkin_start_time(day).change(:hour => self.start_time.hour + 4), end_time: self.create_checkin_end_time(day).change(:hour => self.end_time.hour + 4))
+        if CheckIn.where("task_id = ? and date_trunc('minute', start_time) = date_trunc('minute', cast(? as timestamp)) and date_trunc('minute', end_time) = date_trunc('minute', cast(? as timestamp)) ", self.id, self.create_checkin_start_time(day), self.create_checkin_end_time(day)).empty?
+          CheckIn.create(task_id: self.id, start_time: self.create_checkin_start_time(day), end_time: self.create_checkin_end_time(day))
         end
     end
   end
@@ -49,7 +49,7 @@ class Task < ActiveRecord::Base
     week = (Date.today .. Date.today + 6)
       week.each do |day_of_week|
         if day_of_week.strftime("%A") == day
-          return DateTime.new(day_of_week.year, day_of_week.month, day_of_week.day, self.end_time.hour, self.end_time.min)
+          return DateTime.new(day_of_week.year, day_of_week.month, day_of_week.day, self.end_time.hour, self.end_time.min )
         end
       end
   end

@@ -1,12 +1,25 @@
 module AuthenticationHelper
   def sign_in_as(user)
-    visit root_path
-    click_on "Been here before?"
-    # page.should have_selector('#new_user', visible: true)
-    within(".sign-up-in-form") do
-      fill_in "Email", with: user.email
-      fill_in "Password", with: user.password
-    end
-    click_on "Sign in"
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Sign in"
+
+    expect(page).not_to have_content "Not Found"
+
   end
+
+  def create_task
+    visit tasks_path
+    fill_in "Name", with: "Remember keys."
+    fill_in "Description", with: "Just remember them."
+    select "Monday"
+    select "Friday"
+    select('18', :from => "task_start_time_4i")
+    select('40', :from => "task_start_time_5i")
+    select('19', :from => "task_end_time_4i")
+    select('30', :from => "task_end_time_5i")
+    click_on "Create Task"
+  end
+  
 end
