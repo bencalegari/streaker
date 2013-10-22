@@ -8,9 +8,9 @@ class Task < ActiveRecord::Base
   def self.create_checkins(user)
     @tasks = Task.where(user_id: user.id)
     @tasks.each do |task|
-      task.check_checkins
       task.delete_future_checkins
       task.populate_checkins
+      task.check_checkins 
     end
   end
 

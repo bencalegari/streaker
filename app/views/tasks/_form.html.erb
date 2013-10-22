@@ -3,8 +3,8 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :days, as: :select, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], :input_html => { :class=> 'chosen',:multiple => true } %>
-  <%= f.input :start_time, as: :time %>
-  <%= f.input :end_time, as: :time %>
+  <%= f.input :start_time, as: :string, :input_html => {:class => 'time-pkr'} %>
+  <%= f.input :end_time, as: :string, :input_html => {:class => 'time-pkr'} %>
   <%= f.submit :class => 'start-streaking-btn button radius', :style => "margin:0% 0% 0% 35%" %>
 <% end %>
 
