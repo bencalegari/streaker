@@ -8,7 +8,6 @@ feature 'User creates a task', %q{
   
   let(:user) { create(:user) }
   let!(:task) { create(:task, user: user) }
-  let!(:old_check_in) { create(:check_in, task_id: task.id, start_time: Time.now + 10.hours, end_time: Time.now + 11.hours) }
 
   before :each do
     sign_in_as(user)
@@ -23,7 +22,7 @@ feature 'User creates a task', %q{
 
   scenario "user sees only their own tasks" do
     other_task = FactoryGirl.create(:task, name: "ZE OTHER TASK", user_id: 500)
-
+  
     expect(page).to have_no_content(other_task.name)
   end
 
@@ -41,6 +40,13 @@ feature 'User creates a task', %q{
     expect(page).to have_no_content(task.name)
   end
 
+  scenario "user creates a task with a checkin to complete at that current time" do
+    visit tasks_path
+    click_on "Check In"
+    
+    expect(CheckIn.first.state).to eql("on_time")
+  end
+
   scenario "user changes days and times for task" do
     click_on "Edit"
     fill_in "Name", with: "The newest of names."
@@ -49,35 +55,13 @@ feature 'User creates a task', %q{
       select "Tuesday"
       select "Saturday"
     end
-    # page.execute_script("$('#task_start_time').val('12:00 PM')")
-    # page.execute_script("$('#task_start_time').val('2:00 PM')")
     click_on "Update Task"
     visit tasks_path
 
     expect(task.reload.name).to eql("The newest of names.")
     new_check_in = CheckIn.last
     
-    # expect(new_check_in.start_time.hour).to eql(task.reload.start_time.hour)
-    # expect(new_check_in.start_time.min).to eql(task.reload.start_time.min)
-    # expect(new_check_in.end_time.hour).to eql(task.reload.end_time.hour)
-    # expect(new_check_in.end_time.min).to eql(task.reload.end_time.min)
   end
 
-  # scenario "creates a task with days and hours" do
-  #   visit tasks_path
-  #   fill_in "Name", with: "Remember keys."
-  #   fill_in "Description", with: "Just remember them."
-  #   select "Monday"
-  #   select "Friday"
-  #   page.execute_script("$('#task_start_time').val('6:30 PM')")
-  #   page.execute_script("$('#task_start_time').val('7:30 PM')")
-  #   click_on "Create Task"
-
-  #   task = Task.last
-  #   expect(task.day_list).to include("Monday")
-  #   expect(task.day_list).to include("Friday")
-  #   expect(task.start_time.strftime("%H")).to eql("18")
-  #   expect(task.end_time.strftime("%H")).to eql("19")
-  # end
 
 end

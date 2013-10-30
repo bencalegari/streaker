@@ -16,8 +16,8 @@ class Task < ActiveRecord::Base
 
   def populate_checkins
     self.day_list.each do |day|
-        if CheckIn.where("task_id = ? and date_trunc('minute', start_time) = date_trunc('minute', cast(? as timestamp)) and date_trunc('minute', end_time) = date_trunc('minute', cast(? as timestamp)) ", self.id, self.create_checkin_start_time(day), self.create_checkin_end_time(day)).empty?
-          CheckIn.create(task_id: self.id, start_time: self.create_checkin_start_time(day), end_time: self.create_checkin_end_time(day))
+        if CheckIn.where("task_id = ? and date_trunc('minute', start_time) = date_trunc('minute', cast(? as timestamp)) and date_trunc('minute', end_time) = date_trunc('minute', cast(? as timestamp)) ", self.id, self.create_checkin_start_time(day) + 4.hours, self.create_checkin_end_time(day) + 4.hours).empty?
+          CheckIn.create(task_id: self.id, start_time: self.create_checkin_start_time(day) + 4.hours, end_time: self.create_checkin_end_time(day) + 4.hours)
         end
     end
   end
