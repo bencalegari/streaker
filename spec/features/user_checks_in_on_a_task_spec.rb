@@ -7,17 +7,14 @@ feature 'User checks in on a task', %Q{
   } do
   let(:user) { create(:user) }
   let!(:task) { create(:task, user: user) }
-  let!(:check_in) { create(:check_in, task_id: task.id) }
-  let!(:future_check_in) { create(:check_in, start_time: (Time.now + 1.hours), end_time:(Time.now + 2.hours) )}
 
   scenario 'user makes a check in on time' do
     sign_in_as(user)
     visit tasks_path
     click_on "Check In"
     
-
     expect(page).to have_content("You checked in!")
-    expect(check_in.reload.state).to eql("on_time")
+    expect(CheckIn.first.reload.state).to eql("on_time")
     expect(CheckIn.where(task_id: task.id).count).to eql(2)
   end
 
@@ -25,8 +22,8 @@ feature 'User checks in on a task', %Q{
     sign_in_as(user)
     visit tasks_path  
     click_on "Check In"
-
-    expect(future_check_in.state).to eql("pending")
+    
+    expect(CheckIn.last.state).to eql("pending")
     expect(CheckIn.where(task_id: task.id).count).to eql(2)
   end
 
