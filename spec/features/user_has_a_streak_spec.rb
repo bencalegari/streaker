@@ -16,11 +16,13 @@ feature 'User checks in on a task', %Q{
   scenario 'user has checked in two days in a row' do
     visit tasks_path
     click_on "Check In"
-    #Fast forward one day
+    Timecop.travel(Time.now + 1.day)
     click_on "Check In"
 
     expect(page).to have_content("You've been streaking for 1 day!")
   end
 
-
+  scenario 'user checks in two days in a row, but then misses the third day' do
+    pending
+  end
 end

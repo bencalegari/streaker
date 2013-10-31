@@ -27,5 +27,7 @@ feature 'User checks in on a task', %Q{
     expect(CheckIn.where(task_id: task.id).count).to eql(2)
   end
 
+  # scenario 'user checks in on a task multiple times' do
+  
 
 end
