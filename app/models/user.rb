@@ -6,8 +6,4 @@ class User < ActiveRecord::Base
 
   has_many :tasks
 
-  def check_tasks
-    binding.pry
-  end
-
 end
