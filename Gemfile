@@ -72,5 +72,6 @@ gem 'chosen-rails'
 gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'jquery-ui-rails'
 gem 'pickadate-rails'
+gem 'timecop'
 
 
