@@ -73,5 +73,5 @@ gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'jquery-ui-rails'
 gem 'pickadate-rails'
 gem 'timecop'
-
+gem 'sidekiq'
 
