@@ -1,7 +1,12 @@
 .row
   .large-5.large-centered.columns
     .current-streak.success.label.large
-      %h3 You've been streaking for 1 day!
+      -if current_user.current_streak == 0
+        %h3 You're not streaking? Come on.. Live a little.
+      -elsif current_user.current_streak == 1
+        %h3 You've been streaking for 1 day!
+      -else
+        %h3 You've been streaking for #{current_user.current_streak} days! 
 .row
   .large-5.columns
     .tasks
